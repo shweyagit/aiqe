@@ -7,7 +7,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 process.chdir(resolve(__dirname, '..'));
 
 const SERVERS = [
-  'https://shopify-app-8.preview.emergentagent.com/',
   'https://payment-suite-5.preview.emergentagent.com/',
 ];
 const MAX_RETRIES = 10;
