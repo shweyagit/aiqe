@@ -1,0 +1,23 @@
+name: Wake Server
+
+on:
+  schedule:
+    # Every 25 minutes (before the 30-min server timeout)
+    - cron: '0,25,50 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install chromium --with-deps
+    - name: Wake up server
+      run: node scripts/wake-server.mjs
