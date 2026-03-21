@@ -1,8 +1,8 @@
 name: Wake Server
 
 on:
-  schedule:
-    # Every 25 minutes (before the 30-min server timeout)
+#  schedule:
+#     Every 25 minutes (before the 30-min server timeout)
 #    - cron: '0,25,50 * * * *'
   workflow_dispatch: # Allow manual trigger
 
